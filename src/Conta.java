@@ -5,11 +5,15 @@ public class Conta {
     private double saldo;
     private double sacar;
     private double deposito;
-    private int senha;
+    private String senha;
     private String novaSenha;
 
 
     public Conta() {
+    }
+
+    public String getNovaSenha(String senha) {
+        return novaSenha;
     }
 
     public double getDeposito() {
@@ -23,7 +27,6 @@ public class Conta {
 
         this.saldo +=deposito;
         return saldo;
-
     }
     public double sacar(double retirada ){
 
@@ -40,7 +43,7 @@ public class Conta {
         this.nome = nome;
     }
 
-    public int getSenha() {
+    public String getSenha() {
         return senha;
     }
 
@@ -52,7 +55,7 @@ public class Conta {
         this.sacar = sacar;
     }
 
-    public void setSenha(int senha) {
+    public void setSenha(String senha) {
         this.senha = senha;
     }
 

@@ -5,27 +5,40 @@ public class Entrada {
         Scanner sc = new Scanner(System.in);
         Conta cliente = new Conta();
 
-        int j = 3, depositar, saque,T;
+        int j = 3, depositar, saque, T;
+        String N = "";
         // Menu de Entrada
         System.out.println("Qual o nome da sua Conta?");
         cliente.setNome(sc.next());
         System.out.println("Qual o número da sua conta?");
         cliente.setnDaConta(sc.nextInt());
         System.out.println("Qual a senha da sua conta?");
-        cliente.setSenha(sc.nextInt());
+        cliente.setSenha(sc.next());
 
         // aqui eu testo a senha
-        if (cliente.getSenha() != 2003) {
-            for ( T = 0; T < 3; T++) {
+        if (cliente.getSenha() != "2003") {
+            for (T = 0; T < 3; T++) {
                 System.out.printf("Sua senha está errada você tem %d tentiva restante %n", j--);
-                cliente.setSenha(sc.nextInt());
+                cliente.setSenha(sc.next());
             }
             if (T == 3) {
-                System.out.print("Acabou o numero de tentativas");
-                return;
+                System.out.println("Acabou o numero de tentativas");
+                System.out.println("Deseja Alterar a senha?");
+                N = sc.next();
             }
+            switch (N) {
+                case "Não":
+                    System.out.println("Ok, Sua sessão foi expirada, Até mais!");
+                    break;
+                case "Sim":
+                    System.out.println("Qual a sua nova senha?");
+
+                    cliente.setNovaSenha(sc.next());
+            }
+            System.out.printf("Sua senha nova é, %n" + cliente.getNovaSenha());
+
         }
-        if (cliente.getSenha() == 2003) {
+        if (cliente.getSenha() == "2003") {
             System.out.println("Sua senha está correta");
         }
         // Mostrando o Saldo do cliente e perguntando se quer depositar mais algum valor
