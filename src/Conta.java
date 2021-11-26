@@ -5,35 +5,36 @@ public class Conta {
     private double saldo;
     private double sacar;
     private double deposito;
-    private String senha;
+    private int senha;
     private String novaSenha;
-
+    private String N;
 
     public Conta() {
     }
 
-    public String getNovaSenha(String senha) {
-        return novaSenha;
+    public String getN() {
+        return N;
+    }
+
+    public void setN(String n) {
+        N = n;
+    }
+
+    public void setDeposito(double deposito) {
+        this.deposito = deposito;
     }
 
     public double getDeposito() {
         return deposito;
     }
 
-    public void setDeposito(double deposito) {
-        this.deposito = deposito;
-    }
-    public double deposito(double colocar ){
-
-        this.saldo +=deposito;
-        return saldo;
-    }
-    public double sacar(double retirada ){
-
-        this.saldo -=retirada;
-        return saldo;
-
-    }
+//    public String getNovaSenha() {
+//        return novaSenha;
+//    }
+//
+//    public void setNovaSenha(String novaSenha) {
+//        this.novaSenha = novaSenha;
+//    }
 
     public String getNome() {
         return nome;
@@ -43,7 +44,7 @@ public class Conta {
         this.nome = nome;
     }
 
-    public String getSenha() {
+    public int getSenha() {
         return senha;
     }
 
@@ -55,7 +56,7 @@ public class Conta {
         this.sacar = sacar;
     }
 
-    public void setSenha(String senha) {
+    public void setSenha(int senha) {
         this.senha = senha;
     }
 
@@ -75,11 +76,13 @@ public class Conta {
         this.saldo = saldo;
     }
 
-    public String getNovaSenha() {
-        return novaSenha;
+
+    public double deposito(double deposito) {
+        return deposito + saldo;
     }
 
-    public void setNovaSenha(String novaSenha) {
-        this.novaSenha = novaSenha;
+    public void sacar(double nextDouble) {
     }
 }
+
+
