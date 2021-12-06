@@ -3,38 +3,16 @@ public class Conta {
     private String nome;
     private int nDaConta;
     private double saldo;
-    private double sacar;
     private double deposito;
+    private double sacar;
     private int senha;
-    private String novaSenha;
-    private String N;
 
-    public Conta() {
+
+    public Conta(String nome, int senha, double saldo) {
+        this.nome = nome;
+        this.senha = senha;
+        this.saldo = saldo;
     }
-
-    public String getN() {
-        return N;
-    }
-
-    public void setN(String n) {
-        N = n;
-    }
-
-    public void setDeposito(double deposito) {
-        this.deposito = deposito;
-    }
-
-    public double getDeposito() {
-        return deposito;
-    }
-
-//    public String getNovaSenha() {
-//        return novaSenha;
-//    }
-//
-//    public void setNovaSenha(String novaSenha) {
-//        this.novaSenha = novaSenha;
-//    }
 
     public String getNome() {
         return nome;
@@ -48,13 +26,6 @@ public class Conta {
         return senha;
     }
 
-    public double getSacar() {
-        return sacar;
-    }
-
-    public void setSacar(double sacar) {
-        this.sacar = sacar;
-    }
 
     public void setSenha(int senha) {
         this.senha = senha;
@@ -76,13 +47,18 @@ public class Conta {
         this.saldo = saldo;
     }
 
-
-    public double deposito(double deposito) {
-        return deposito + saldo;
+    public void deposito(double amount) {
+        saldo += amount;
     }
 
-    public void sacar(double nextDouble) {
+    public boolean sacar(double amount) {
+        if (this.saldo < amount) {
+            return false;
+        } else {
+            this.saldo -= amount;
+            return true;
+        }
     }
+
 }
-
 
